@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sugandi dan Aeni">
+  <rect width="64" height="64" rx="14" fill="#0d1a44"/>
+  <rect x="6" y="6" width="52" height="52" rx="10" fill="none" stroke="#c6a15b" stroke-width="1.5"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#e7d3a2">S&amp;A</text>
+</svg>
