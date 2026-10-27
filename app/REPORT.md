@@ -12,7 +12,7 @@ Database setelah pengujian bersih: `ucapan` 0 baris dan `rsvp` 0 baris.
 
 Brief awal meminta autentikasi Clerk dan `POST /api/ucapan` menolak tamu tanpa login dengan status 401. Atas permintaan terbaru, bagian tersebut diganti:
 
-- Clerk beserta seluruh komponen, provider, middleware, dependency, dan environment terkait dihapus.
+- Clerk beserta seluruh komponen, provider, middleware, dependency, dan environment terkait dihapus, termasuk environment Clerk di Vercel dan berkas env lokal.
 - Form ucapan publik tidak memakai login dan tidak mengumpulkan email.
 - `POST /api/ucapan` sekarang publik, menyimpan ucapan dengan status menunggu, dan mengembalikan 201.
 - Ucapan hanya tampil di daftar publik setelah disetujui admin.
@@ -28,6 +28,7 @@ Pemeriksaan 401 lama untuk `POST /api/ucapan` tidak berlaku lagi. Penggantinya a
 - Isi undangan, cover, musik, countdown, galeri, RSVP, dan footer tetap ada.
 - Tidak ada form login, email, tombol masuk, badge Clerk, atau teks pengembangan di halaman publik.
 - Favicon memakai monogram `S&A` di `src/app/icon.svg`, sehingga permintaan `/favicon.ico` yang gagal tidak muncul lagi.
+- Font Cormorant Garamond dan Jost disajikan sendiri dari `public/fonts` agar build tidak bergantung pada pengambilan Google Fonts.
 
 ### Ucapan publik
 
@@ -89,6 +90,17 @@ Kolom email lama dihapus karena alur login sudah tidak dipakai. Migrasi `scripts
 - Halaman `/admin`: `noindex, nofollow`
 - HTML publik dan admin: tidak ada referensi Clerk, tidak ada teks terlarang, dan tidak ada URL pengembangan.
 
+### HTTP produksi
+
+- `/`: 200, memuat aset `_next/static`, judul undangan, dan tanpa form login atau Clerk.
+- `/admin`: 200, `noindex, nofollow`.
+- `/api/ucapan`: 200, `cache-control: no-store`.
+- `/api/admin/ucapan` tanpa sesi: 401.
+- `/api/admin/login` dengan kredensial salah: 401.
+- `/api/admin/login` dengan kredensial benar: 200.
+- `/fonts/cormorant-normal.woff2`, `/fonts/cormorant-italic.woff2`, `/fonts/jost-normal.woff2`, `/icon.svg`, `/prewed-01.webp`, `/prewed-02.webp`, `/music.mp3`, dan `/og.jpg`: 200.
+- Panel admin produksi: login berhasil, filter dan jumlah tampil, logout berhasil.
+
 ### Alur ucapan
 
 1. `POST /api/ucapan` tanpa login: 201.
@@ -99,6 +111,15 @@ Kolom email lama dihapus karena alur login sudah tidak dipakai. Migrasi `scripts
 6. Admin membatalkan persetujuan: ucapan hilang dari daftar publik.
 7. Admin menghapus: baris terhapus dari database.
 8. Validasi nama 1 karakter, nama 61 karakter, ucapan 501 karakter, ucapan kosong, dan JSON rusak semuanya menghasilkan 400.
+
+### Alur ucapan produksi
+
+1. `POST /api/ucapan` di produksi: 201.
+2. Ucapan uji tidak tampil di daftar publik sebelum disetujui.
+3. Ucapan uji terlihat di filter Menunggu admin.
+4. Admin menyetujui: 200 dan ucapan tampil di daftar publik.
+5. Admin menghapus: 200 dan ucapan hilang dari daftar publik.
+6. Jumlah akhir `ucapan`: 0.
 
 ### RSVP
 
@@ -118,6 +139,8 @@ Kolom email lama dihapus karena alur login sudah tidak dipakai. Migrasi `scripts
 - Tidak ada error console di halaman publik.
 - Tidak ada resource Clerk yang dimuat.
 - Panel admin di 390 px dan 1440 px juga tanpa overflow, tanpa target sentuh kecil, dan tanpa teks di bawah 12 px.
+- Produksi 390 x 844 dan 1440 x 900: tinggi halaman sama dengan build lokal, tanpa overflow horizontal, tanpa target sentuh di bawah 44 px, tanpa teks di bawah 12 px, tanpa error console, dan tanpa resource Clerk.
+- Panel admin produksi di 390 px: tanpa overflow horizontal, tanpa target sentuh kecil, dan tanpa teks di bawah 12 px.
 
 ### Kebersihan data
 
@@ -140,6 +163,8 @@ Kolom email lama dihapus karena alur login sudah tidak dipakai. Migrasi `scripts
 - GitHub: `https://github.com/mohimamrifai/undangan-sugandi-aeni`
 - Framework Vercel: Next.js
 - Root Directory Vercel: `app`
+- Status: produksi aktif, deployment READY
+- Build Vercel: lulus dengan font self-hosted
 - Kredensial admin: environment Vercel, tidak masuk repository
 
 ## File Utama
@@ -156,6 +181,8 @@ Kolom email lama dihapus karena alur login sudah tidak dipakai. Migrasi `scripts
 - `src/lib/admin-auth.ts`
 - `scripts/migrate.ts`
 - `src/app/layout.tsx`
+- `src/app/globals.css`
 - `src/app/icon.svg`
+- `public/fonts/`
 
 File yang dihapus: `src/middleware.ts` dan `src/components/EmailCodeAuth.tsx`. Dependency `@clerk/nextjs` juga dihapus dari `package.json` dan lockfile.
