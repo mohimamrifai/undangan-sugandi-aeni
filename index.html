@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Undangan Pernikahan Sugandi &amp; Aeni</title>
+<meta name="description" content="Undangan pernikahan Muhammad Sugandi Putra dan Quratul Aeni. Kamis, 12 November 2026, Segeran Lor, Juntinyuat, Indramayu.">
+<meta property="og:title" content="Undangan Pernikahan Sugandi & Aeni">
+<meta property="og:description" content="Kamis, 12 November 2026 · Segeran Lor, Juntinyuat, Indramayu">
+<meta property="og:image" content="assets/p33508474.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#4a0d18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#4a0d18; --maroon-2:#6b1220; --gold:#c9a24a; --gold-soft:#e3c98a;
+    --cream:#f8f1e4; --ink:#2a1a16; --muted:#7a6558;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{background:var(--maroon);color:var(--ink);font-family:'Jost',system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+
+  /* ---------- COVER ---------- */
+  #cover{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;
+    background:#2c070e;transition:opacity .9s ease,visibility .9s;overflow:hidden}
+  #cover.hide{opacity:0;visibility:hidden;pointer-events:none}
+  #cover .bg{position:absolute;inset:0;background:url(assets/p33508474.webp) center/cover no-repeat;filter:brightness(.42) saturate(.9)}
+  #cover .veil{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(74,13,24,.25),rgba(28,5,10,.92) 75%)}
+  .cover-in{position:relative;text-align:center;padding:32px 26px;color:var(--cream);max-width:520px}
+  .kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);text-shadow:0 1px 12px rgba(0,0,0,.55)}
+  .cover-in h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(44px,13vw,72px);line-height:1.05;margin:18px 0 6px;color:#fff}
+  .cover-in h1 .amp{display:block;font-size:.55em;color:var(--gold);margin:6px 0}
+  .cover-date{margin-top:16px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,241,228,.85)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;
+    border:1px solid var(--gold);color:#2a0a10;background:linear-gradient(180deg,#e3c98a,#c9a24a);border-radius:2px;
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;cursor:pointer;text-decoration:none;transition:transform .2s,filter .2s}
+  .btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--cream);border-color:rgba(201,162,74,.6)}
+  #cover .btn{margin-top:30px}
+
+  /* ---------- ORNAMENT ---------- */
+  .orn{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gold);margin:0 auto}
+  .orn::before,.orn::after{content:"";height:1px;width:56px;background:linear-gradient(90deg,transparent,var(--gold))}
+  .orn::after{background:linear-gradient(90deg,var(--gold),transparent)}
+  .orn svg{width:22px;height:22px;fill:currentColor}
+
+  /* ---------- SECTIONS ---------- */
+  main{background:var(--cream)}
+  section{padding:64px 22px;position:relative}
+  .wrap{max-width:640px;margin:0 auto;text-align:center}
+  .dark{background:linear-gradient(180deg,#3d0812,#4a0d18);color:var(--cream)}
+  h2.serif{font-size:clamp(28px,7vw,38px);font-weight:400;line-height:1.25;margin:16px 0 10px}
+  .lead{font-size:16px;color:var(--muted);max-width:520px;margin:0 auto}
+  .dark .lead{color:rgba(248,241,228,.78)}
+
+  /* opening */
+  .opening{padding-top:70px}
+  .bismillah{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--maroon-2);margin-bottom:26px;letter-spacing:.02em}
+  .ayat{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;line-height:1.8;color:#4a342c;max-width:520px;margin:0 auto}
+  .dark .ayat{color:rgba(248,241,228,.94)}
+  .ayat-src{display:block;margin-top:14px;font-family:'Jost';font-style:normal;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+  /* couple */
+  .couple{display:grid;gap:34px;margin-top:34px}
+  .person h3{font-family:'Cormorant Garamond',serif;font-size:31px;font-weight:600;color:var(--maroon-2);line-height:1.2}
+  .person .parents{margin-top:8px;font-size:15px;color:var(--muted)}
+  .person .parents b{color:#5d4636;font-weight:500}
+  .great{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--gold);line-height:1}
+
+  /* countdown */
+  .count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+  .cbox{border:1px solid rgba(201,162,74,.45);background:rgba(255,255,255,.04);padding:12px 6px;border-radius:2px}
+  .cbox b{display:block;font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--gold-soft);line-height:1;font-variant-numeric:tabular-nums}
+  .cbox span{display:block;margin-top:6px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(248,241,228,.8)}
+
+  /* event */
+  .event-card{border:1px solid rgba(74,13,24,.14);background:#fffdf8;padding:26px 20px;margin-top:26px;border-radius:3px;box-shadow:0 10px 30px rgba(74,13,24,.06)}
+  .event-card .day{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--maroon-2)}
+  .event-card .time{margin-top:6px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .event-card .addr{margin-top:16px;font-size:15.5px;line-height:1.65;color:#3f2c24}
+  .event-card .btn{margin-top:20px}
+
+  /* gallery */
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px}
+  .gal img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;border-radius:2px;filter:saturate(.92)}
+  .gal .wide{grid-column:1/-1;aspect-ratio:16/10}
+
+  /* rsvp */
+  form{margin-top:24px;text-align:left;max-width:460px;margin-inline:auto}
+  label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+  input,select,textarea{width:100%;min-height:48px;padding:12px 14px;border:1px solid rgba(74,13,24,.2);background:#fffdf8;
+    border-radius:2px;font-family:inherit;font-size:15px;color:var(--ink)}
+  textarea{min-height:96px;resize:vertical}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+  form .btn{width:100%;margin-top:22px}
+  .hint{font-size:13px;color:var(--muted);margin-top:12px;text-align:center}
+
+  footer{padding:44px 22px 52px;text-align:center;background:#2c070e;color:rgba(248,241,228,.78);font-size:13px;letter-spacing:.05em}
+  footer .names{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold-soft);margin-bottom:8px}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} }
+  @media (min-width:720px){
+    section{padding:86px 32px}
+    .couple{grid-template-columns:1fr auto 1fr;align-items:center;gap:22px}
+    .gal{grid-template-columns:repeat(3,1fr)}
+    .gal .wide{grid-column:auto;aspect-ratio:3/4}
+  }
+</style>
+</head>
+<body>
+
+<div id="cover">
+  <div class="bg"></div><div class="veil"></div>
+  <div class="cover-in">
+    <p class="kicker">The Wedding Of</p>
+    <h1>Sugandi <span class="amp">&amp;</span> Aeni</h1>
+    <div class="orn" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.2L21 10l-5 4.4L17.5 22 12 18.3 6.5 22 8 14.4 3 10l6.6-1.8z"/></svg>
+    </div>
+    <p class="cover-date">Kamis, 12 November 2026</p>
+    <button class="btn" id="openBtn" type="button">Buka Undangan</button>
+  </div>
+</div>
+
+<main>
+  <section class="opening">
+    <div class="wrap rv">
+      <p class="bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+      <p class="lead">Dengan memohon rahmat dan ridha Allah Subhanahu wa Ta'ala, kami bermaksud menyelenggarakan pernikahan putra-putri kami.</p>
+      <div class="orn" aria-hidden="true" style="margin:26px auto 0">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.2L21 10l-5 4.4L17.5 22 12 18.3 6.5 22 8 14.4 3 10l6.6-1.8z"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" style="padding-top:56px">
+    <div class="wrap rv">
+      <p class="ayat">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu dapat ketenangan hati dan menjadikan kasih sayang di antara kamu."</p>
+      <span class="ayat-src">QS. Ar-Rum: 21</span>
+    </div>
+  </section>
+
+  <section class="couple-sec">
+    <div class="wrap">
+      <p class="kicker" style="color:var(--gold)">Mempelai</p>
+      <div class="couple rv">
+        <div class="person">
+          <h3>Muhammad Sugandi Putra</h3>
+          <p class="parents">Putra dari<br><b>Bapak Kasuma</b> &amp; <b>Ibu Umroti</b></p>
+        </div>
+        <div class="great" aria-hidden="true">&amp;</div>
+        <div class="person">
+          <h3>Quratul Aeni</h3>
+          <p class="parents">Putri dari<br><b>Bapak Maksum (Alm.)</b> &amp; <b>Ibu Ulpah</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap rv">
+      <p class="kicker">Menuju hari bahagia</p>
+      <div class="count" id="countdown" aria-live="polite">
+        <div class="cbox"><b id="d">00</b><span>Hari</span></div>
+        <div class="cbox"><b id="h">00</b><span>Jam</span></div>
+        <div class="cbox"><b id="m">00</b><span>Menit</span></div>
+        <div class="cbox"><b id="s">00</b><span>Detik</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap rv">
+      <p class="kicker" style="color:var(--gold)">Waktu &amp; Tempat</p>
+      <h2 class="serif">Kamis, 12 November 2026</h2>
+      <div class="event-card">
+        <p class="day">Walimatul 'Ursy</p>
+        <p class="time">Pukul 09.00 WIB sampai selesai</p>
+        <p class="addr">Desa Segeran Lor, Blok Klampean Wetan<br>RT/RW 003/002, Kecamatan Juntinyuat<br>Kabupaten Indramayu, Jawa Barat</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Segeran+Lor+Juntinyuat+Indramayu" target="_blank" rel="noopener">Buka Peta Lokasi</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap rv">
+      <p class="kicker">Galeri</p>
+      <h2 class="serif">Sekilas kebersamaan</h2>
+      <div class="gal">
+        <img class="wide" src="assets/p33508474.webp" alt="Dekorasi bunga marigold pada acara pernikahan" loading="lazy">
+        <img src="assets/p31002035.webp" alt="Rangkaian bunga dan kain pada dekorasi pernikahan" loading="lazy">
+        <img src="assets/p30215061.webp" alt="Detail hiasan tangan pengantin" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="wrap rv">
+      <p class="kicker" style="color:var(--gold)">Konfirmasi Kehadiran</p>
+      <h2 class="serif">RSVP</h2>
+      <p class="lead">Mohon konfirmasi kehadiran agar kami dapat menyiapkan tempat dengan baik.</p>
+      <form id="rsvpForm">
+        <label for="nama">Nama</label>
+        <input id="nama" name="nama" type="text" placeholder="Nama Anda" required>
+        <label for="jumlah">Jumlah tamu</label>
+        <select id="jumlah" name="jumlah">
+          <option>1 orang</option><option>2 orang</option><option>3 orang</option><option>4 orang</option><option>Lebih dari 4</option>
+        </select>
+        <label for="hadir">Kehadiran</label>
+        <select id="hadir" name="hadir">
+          <option>Hadir</option><option>Berhalangan hadir</option>
+        </select>
+        <label for="pesan">Ucapan &amp; doa</label>
+        <textarea id="pesan" name="pesan" placeholder="Tulis doa atau ucapan untuk kedua mempelai"></textarea>
+        <button class="btn" type="submit">Kirim via WhatsApp</button>
+        <p class="hint">Pesan akan terbuka di WhatsApp dengan teks yang sudah terisi.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="names">Sugandi &amp; Aeni</p>
+  <p>12 November 2026 · Juntinyuat, Indramayu</p>
+  <p style="margin-top:10px;color:rgba(248,241,228,.45)">Merupakan kehormatan bagi kami atas kehadiran dan doa restu Bapak/Ibu/Saudara.</p>
+</footer>
+
+<script>
+  /* GANTI dengan nomor WhatsApp mempelai atau keluarga (format 62...) */
+  const RSVP_NUMBER = "6285899225363";
+
+  const cover = document.getElementById('cover');
+  function openInvitation() {
+    cover.classList.add('hide');
+    document.body.style.overflow = 'auto';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+  document.getElementById('openBtn').addEventListener('click', openInvitation);
+  /* dukung tautan langsung tanpa sampul, mis. domain/#buka */
+  if (location.hash === '#buka') openInvitation(); else document.body.style.overflow = 'hidden';
+
+  /* hitung mundur */
+  const target = new Date('2026-11-12T09:00:00+07:00').getTime();
+  const pad = n => String(n).padStart(2, '0');
+  function tick() {
+    const diff = target - Date.now();
+    if (diff <= 0) { ['d','h','m','s'].forEach(id => document.getElementById(id).textContent = '00'); return; }
+    const d = Math.floor(diff / 864e5);
+    const h = Math.floor(diff % 864e5 / 36e5);
+    const m = Math.floor(diff % 36e5 / 6e4);
+    const s = Math.floor(diff % 6e4 / 1e3);
+    document.getElementById('d').textContent = pad(d);
+    document.getElementById('h').textContent = pad(h);
+    document.getElementById('m').textContent = pad(m);
+    document.getElementById('s').textContent = pad(s);
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* reveal saat scroll */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  /* RSVP ke WhatsApp */
+  document.getElementById('rsvpForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const nama = document.getElementById('nama').value.trim();
+    const jumlah = document.getElementById('jumlah').value;
+    const hadir = document.getElementById('hadir').value;
+    const pesan = document.getElementById('pesan').value.trim();
+    const text = `Konfirmasi kehadiran pernikahan Sugandi & Aeni%0A%0ANama: ${encodeURIComponent(nama)}%0AJumlah tamu: ${encodeURIComponent(jumlah)}%0AKehadiran: ${encodeURIComponent(hadir)}${pesan ? `%0AUcapan: ${encodeURIComponent(pesan)}` : ''}`;
+    window.open(`https://wa.me/${RSVP_NUMBER}?text=${text}`, '_blank', 'noopener');
+  });
+</script>
+</body>
+</html>
