@@ -51,7 +51,7 @@ export default function CoupleSection() {
                     className="aspect-[3/4] w-full object-cover"
                   />
                 </ArchFrame>
-                <h3 className="mt-4 font-serif text-[22px] leading-tight text-navy2 sm:text-[25px]">
+                <h3 className="mt-4 font-serif text-[clamp(15px,4.5vw,22px)] leading-tight text-navy2 sm:text-[24px] whitespace-nowrap">
                   {person.name}
                 </h3>
                 <p className="mt-1.5 text-[13.5px] text-muted">{person.child}</p>
