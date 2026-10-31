@@ -12,7 +12,7 @@ export default function MusicButton({ isPlaying, onToggle }: Props) {
       onClick={onToggle}
       aria-label={isPlaying ? 'Jeda musik' : 'Putar musik'}
       aria-pressed={isPlaying}
-      className="fixed bottom-4 right-4 z-40 grid h-12 w-12 place-items-center rounded-full border border-gold/70 bg-[rgba(6,16,46,0.82)] text-gold-soft backdrop-blur-md"
+      className="fixed bottom-3 left-3 z-40 grid h-11 w-11 place-items-center rounded-full border border-gold/70 bg-[rgba(6,16,46,0.82)] text-gold-soft backdrop-blur-md"
     >
       {isPlaying ? (
         <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">

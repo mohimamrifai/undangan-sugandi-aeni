@@ -1,0 +1,6 @@
+Berkas musik: music.mp3
+Sumber: Wikimedia Commons, "Shumi-Marista Piano Instrumental"
+Lisensi: CC0 1.0 (domain publik, tanpa syarat atribusi)
+URL: https://commons.wikimedia.org/wiki/File:Shumi-Marista_Piano_Instrumental.ogg
+Disunting: dinormalisasi (loudnorm -18 LUFS), dipotong, dan diulang tiga kali dengan crossfade.
+Ganti berkas ini jika mempelai memilih lagu sendiri.

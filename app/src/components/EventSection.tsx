@@ -1,4 +1,5 @@
 import ScrollReveal from './ScrollReveal';
+import { Ornament } from './accent/Ornament';
 
 export default function EventSection() {
   return (
@@ -8,6 +9,7 @@ export default function EventSection() {
           Waktu &amp; Tempat
         </p>
         <h2 className="my-3.5 font-serif text-[clamp(28px,7vw,38px)] leading-tight">
+        <Ornament className="mt-4 " />
           Kamis, 12 November 2026
         </h2>
         <div className="mt-6 rounded-[3px] border border-navy/10 bg-white p-6 text-left shadow-[0_10px_30px_rgba(13,26,68,0.07)]">
@@ -23,10 +25,10 @@ export default function EventSection() {
             Kabupaten Indramayu, Jawa Barat
           </p>
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Segeran+Lor+Juntinyuat+Indramayu"
+            href="https://maps.app.goo.gl/sniDne4tyMDFCZER6"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-sm border border-gold bg-gradient-to-b from-[#ecd79b] to-gold px-7 text-[13px] font-medium uppercase tracking-[0.16em] text-[#2a1f04] transition hover:-translate-y-0.5 hover:brightness-105"
+            className="btn-sheen mt-5 inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-sm border border-gold bg-gradient-to-b from-[#ecd79b] to-gold px-7 text-[13px] font-medium uppercase tracking-[0.16em] text-[#2a1f04] transition hover:-translate-y-0.5 hover:brightness-105"
           >
             Buka Peta Lokasi
           </a>

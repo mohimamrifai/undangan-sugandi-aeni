@@ -2,13 +2,14 @@
 
 import { FormEvent, useState } from 'react';
 import ScrollReveal from './ScrollReveal';
+import { SilkPattern } from './accent/Brand';
 
 const inputClass =
   'w-full min-h-12 rounded-sm border border-navy/20 bg-white px-3.5 py-3 text-base text-ink focus:border-gold focus:outline-none focus:outline-2 focus:outline-offset-1 focus:outline-gold';
 
 type Status = 'idle' | 'loading' | 'ok' | 'err';
 
-export default function RsvpSection() {
+export default function RsvpSection({ defaultName = '' }: { defaultName?: string }) {
   const [status, setStatus] = useState<Status>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -51,7 +52,8 @@ export default function RsvpSection() {
   };
 
   return (
-    <section id="rsvp" className="bg-ivory px-5 py-16">
+    <section id="rsvp" className="relative overflow-hidden bg-ivory px-5 py-16">
+      <SilkPattern />
       <ScrollReveal className="mx-auto max-w-xl text-center">
         <p className="mb-3 text-xs uppercase tracking-[0.3em] text-gold">
           Konfirmasi Kehadiran
@@ -75,6 +77,7 @@ export default function RsvpSection() {
             autoComplete="name"
             maxLength={80}
             required
+            defaultValue={defaultName}
             disabled={status === 'loading'}
             className={inputClass}
           />
@@ -128,7 +131,7 @@ export default function RsvpSection() {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="mt-5 inline-flex min-h-[50px] w-full items-center justify-center gap-2.5 rounded-sm border border-gold bg-gradient-to-b from-[#ecd79b] to-gold px-7 text-[13px] font-medium uppercase tracking-[0.16em] text-[#2a1f04] transition hover:-translate-y-0.5 hover:brightness-105 disabled:opacity-60"
+            className="btn-sheen mt-5 inline-flex min-h-[50px] w-full items-center justify-center gap-2.5 rounded-sm border border-gold bg-gradient-to-b from-[#ecd79b] to-gold px-7 text-[13px] font-medium uppercase tracking-[0.16em] text-[#2a1f04] transition hover:-translate-y-0.5 hover:brightness-105 disabled:opacity-60"
           >
             {status === 'loading' ? 'Mengirim...' : 'Kirim RSVP'}
           </button>

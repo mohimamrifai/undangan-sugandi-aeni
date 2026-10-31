@@ -1,2 +1,2 @@
-export const SHOW_STORY = false;
-export const SHOW_GIFT = false;
+export const SHOW_STORY = true;
+export const SHOW_GIFT = true;

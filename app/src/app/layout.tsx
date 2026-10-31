@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Undangan Pernikahan Sugandi & Aeni',
   description:
-    'Undangan pernikahan Muhammad Sugandi Putra dan Quratul Aeni. Kamis, 12 November 2026, Segeran Lor, Juntinyuat, Indramayu.',
+    'Undangan pernikahan Muhammad Sugandi dan Quratul Aeni. Kamis, 12 November 2026, Segeran Lor, Juntinyuat, Indramayu.',
   openGraph: {
     title: 'Undangan Pernikahan Sugandi & Aeni',
     description: 'Kamis, 12 November 2026 - Segeran Lor, Juntinyuat, Indramayu',
@@ -34,6 +34,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

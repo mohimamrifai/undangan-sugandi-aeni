@@ -186,3 +186,53 @@ Kolom email lama dihapus karena alur login sudah tidak dipakai. Migrasi `scripts
 - `public/fonts/`
 
 File yang dihapus: `src/middleware.ts` dan `src/components/EmailCodeAuth.tsx`. Dependency `@clerk/nextjs` juga dihapus dari `package.json` dan lockfile.
+
+## Revisi 30 Oktober 2026
+
+Sumber: pesan klien (Sugandi) 30 Okt 2026 00.52 dan 00.58, diteruskan AXION lewat `BRIEF-RAKA-REVISI-3010.md`.
+
+### Perubahan kode
+
+- `src/components/WeddingPage.tsx` — teks Bismillah di bagian pembuka dihapus. Kalimat undangan diganti persis menjadi: "Tanpa mengurangi rasa hormat. Kami mengundang bapak/ibu/saudara/i serta kerabat sekalian untuk menghadiri acara pernikahan kami."
+- `src/components/CoupleSection.tsx` — label bagian mempelai "Mempelai" diganti "The Bride & Groom". Ukuran, tracking, warna, dan tata letak tidak diubah.
+- `src/components/GiftSection.tsx` — judul "Amplop digital" menjadi "Wedding Gift". Data rekening dummy (BCA/Mandiri) diganti data asli: BNI 2049302241 a/n Muhammad Sugandi, DANA 0895320368985 a/n Quratul Aeni. Kalimat "Nomor di atas masih contoh..." dihapus. Kedua tombol salin tetap berfungsi.
+- Tidak ada perubahan pada cover, countdown, RSVP, ucapan, galeri, musik, footer, maupun panel admin. Skema database tidak diubah.
+
+### Sapuan Bismillah
+
+- `app/src`: 1 kemunculan, yaitu `src/components/WeddingPage.tsx` (teks Arab بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ). Sudah dihapus. Catatan: brief memperkirakan tidak ada di `app/src`, hasil grep menunjukkan ada satu.
+- `app/public`: 0 kemunculan, termasuk seluruh aset `prewed-*.webp`.
+- Halaman `/u/[slug]`: memakai komponen `WeddingPage`, jadi otomatis bersih.
+- Di luar `app/` masih ada di: `print/v1.html`, `print/v3.html`, `print/v5-slim.html`, `print/print.css`, `print/print2.css`, `print/panduan-lipat.html`, `paket.html`, `site/index.html`. Berkas `print/v4-a5.html` (desain cetak terpilih) sudah dibersihkan. Varian cetak lain (v5-slim, v6-landscape) tidak diubah karena bukan desain yang dipilih klien. Kelas CSS `.bismillah` di `print2.css` dibiarkan karena tidak lagi dipakai `v4-a5.html`.
+
+### Undangan cetak
+
+- Berkas sumber: `print/v4-a5.html`. Cadangan versi 27 Okt: `print/v4-a5-sebelum-revisi-3010.html`.
+- Tata letak sebaran dalam (halaman 2): nama kedua mempelai di kolom kiri, foto tambahan di kolom kanan, tanggal "Kamis, 12 November 2026" tepat di bawah foto. Bismillah dihapus; ayat QS. Ar-Rum 21 dipertahankan.
+- Bingkai emas tetap satu bingkai yang menyambung melewati lipatan; garis dan motif tidak dipotong di tengah.
+- Ukuran tetap A5 terbuka 29,7 × 21 cm + bleed 3 mm: file 303 × 216 mm (858,96 × 612 pt), 2 halaman.
+- Foto: `app/public/prewed-02.webp` (satu-satunya foto prewedding yang belum dipakai di desain A5), dikonversi ke `print/photo-prewed-02.jpg` 960 × 1280, kualitas 94, 231 ppi saat dicetak.
+- PDF baru: `print/Undangan-Cetak-A5-Revisi-3010.pdf` — 1.516.159 byte, teks sudah outline (0 font terdaftar di `pdffonts`), warna CMYK (terverifikasi `inkcov`), MD5 `29d89db7cefb2c649fddbbe4f1ebdf14`.
+
+### Verifikasi
+
+- `npm run build`: lulus. Satu peringatan lama `@next/next/no-page-custom-font` di `src/app/layout.tsx` (sudah ada sebelum revisi).
+- Deploy produksi: `dpl_5y9h15rs48u4xSgdQYdYJjVzijaH` (`undangan-sugandi-aeni-oph3wq6ir`), status Ready (30 s), alias `https://undangan-sugandi-aeni.vercel.app` sudah menunjuk ke deployment ini.
+- Verifikasi live, HTML dari `https://undangan-sugandi-aeni.vercel.app/` dan `/u/bapak-budi-santoso` (keduanya 200): "The Bride & Groom" 1, kalimat undangan baru 1, "Wedding Gift" 1, `2049302241` 1, `0895320368985` 1, Bismillah 0, "BCA" 0, "Mandiri" 0, "Amplop digital" 0, "Dengan memohon rahmat" 0.
+- Verifikasi di browser pada URL live: 2 tombol "Salin nomor" ada; klik tombol pertama menyalin `2049302241`, klik tombol kedua menyalin `0895320368985`, dan label berubah menjadi "Nomor tersalin".
+- `/admin` 200, `/api/ucapan` 200.
+- Mobile 390 × 844: tidak ada overflow horizontal (`scrollWidth - clientWidth = 0`), label "The Bride & Groom" tetap satu baris.
+
+### Tafsiran yang dipilih
+
+- "Nama di kiri, foto di kanan, tanggal di bawah foto" diterapkan pada sebaran dalam (halaman 2). Sampul luar (halaman 1) tidak diubah: nama tetap menumpang di atas foto penuh karena di sisi luar tidak ada kolom foto kedua.
+- Label mempelai memakai gaya kicker yang sudah ada (huruf kapital), sehingga tampil sebagai "THE BRIDE & GROOM"; teks sumbernya persis "The Bride & Groom".
+- "Wedding Gift" hanya mengganti judul. Label kecil "Tanda Kasih" di atasnya dipertahankan karena klien tidak menyebutnya dan brief meminta teks penjelas tetap bahasa Indonesia. Kalimat penutup "Nomor di atas masih contoh..." diganti kalimat netral karena datanya sudah asli.
+- Nomor DANA ditulis apa adanya `0895320368985` (bukan format +62) sesuai pesan klien.
+
+### Tindak lanjut
+
+- Repositori git sekarang ada di `app/`: commit baseline `1272733`, commit revisi `0d71459`.
+- `print/` belum menjadi repositori git.
+- Deploy CLI dari `app/` ditolak Vercel ("commit author doesn't have permission") karena direktori itu kini punya `.git` dengan author lokal; deploy berhasil dengan mengunggah salinan tanpa `.git` (struktur Root Directory `app` dipertahankan).
+

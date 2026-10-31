@@ -2,6 +2,8 @@
 
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import ScrollReveal from './ScrollReveal';
+import { SilkPattern } from './accent/Brand';
+import { Ornament } from './accent/Ornament';
 
 type UcapanItem = {
   id: number;
@@ -97,10 +99,12 @@ export default function UcapanSection() {
   };
 
   return (
-    <section className="bg-ivory px-5 py-16">
+    <section className="relative overflow-hidden bg-ivory px-5 py-16">
+      <SilkPattern />
       <ScrollReveal className="mx-auto max-w-xl text-center">
         <p className="mb-3 text-xs uppercase tracking-[0.3em] text-gold">Ucapan &amp; Doa</p>
         <h2 className="my-3.5 font-serif text-[clamp(28px,7vw,38px)] leading-tight">
+        <Ornament className="mt-4 " />
           Kirimkan Doa
         </h2>
         <p className="mx-auto max-w-lg text-base text-muted">
@@ -145,7 +149,7 @@ export default function UcapanSection() {
           <button
             type="submit"
             disabled={busy}
-            className="mt-5 inline-flex min-h-[50px] w-full items-center justify-center gap-2.5 rounded-sm border border-gold bg-gradient-to-b from-[#ecd79b] to-gold px-7 text-[13px] font-medium uppercase tracking-[0.16em] text-[#2a1f04] transition hover:-translate-y-0.5 hover:brightness-105 disabled:opacity-60"
+            className="btn-sheen mt-5 inline-flex min-h-[50px] w-full items-center justify-center gap-2.5 rounded-sm border border-gold bg-gradient-to-b from-[#ecd79b] to-gold px-7 text-[13px] font-medium uppercase tracking-[0.16em] text-[#2a1f04] transition hover:-translate-y-0.5 hover:brightness-105 disabled:opacity-60"
           >
             {busy ? 'Mengirim...' : 'Kirim Ucapan'}
           </button>
