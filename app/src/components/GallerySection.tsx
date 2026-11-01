@@ -5,12 +5,25 @@ import { useCallback, useEffect, useState } from 'react';
 import ScrollReveal from './ScrollReveal';
 import { Ornament } from './accent/Ornament';
 
-/** Foto yang dipakai sementara: dua aset prewedding yang sudah ada. */
+/**
+ * Foto prewedding.
+ *
+ * prewed-01 … 04: sesi pertama (pantai, potret masing-masing mempelai).
+ * prewed-05 … 10: sesi hutan cemara, busana biru — dikirim 1 November 2026.
+ * Urutan di bawah adalah urutan tampil di galeri.
+ */
 const photos = [
   {
     src: '/prewed-01.webp',
-    alt: 'Kedua mempelai berjalan berpegangan tangan di tepi pantai pada malam hari',
+    alt: 'Kedua mempelai berpegangan tangan di tepi pantai pada malam hari',
     caption: 'Tepi pantai, menjelang malam',
+    width: 934,
+    height: 1280,
+  },
+  {
+    src: '/prewed-02.webp',
+    alt: 'Sugandi dan Aeni berpegangan tangan di tepi pantai',
+    caption: 'Bersama di tepi pantai',
     width: 934,
     height: 1280,
   },
@@ -25,6 +38,55 @@ const photos = [
     src: '/prewed-04.webp',
     alt: 'Muhammad Sugandi dalam balutan busana biru di antara pepohonan',
     caption: 'Satu nada',
+    width: 960,
+    height: 1280,
+  },
+  {
+    src: '/prewed-05.webp',
+    alt: 'Kedua mempelai duduk berhadapan di ayunan kayu di antara pohon cemara',
+    caption: 'Di ayunan, di antara cemara',
+    width: 960,
+    height: 1280,
+  },
+  {
+    src: '/prewed-06.webp',
+    alt: 'Quratul Aeni tersenyum dalam hijab biru muda dan kain biru royal',
+    caption: 'Senyum di bawah cemara',
+    width: 960,
+    height: 1280,
+  },
+  {
+    src: '/prewed-07.webp',
+    alt: 'Quratul Aeni berdiri menyamping dengan kain biru panjang menyapu tanah',
+    caption: 'Kain yang menyapu tanah',
+    width: 960,
+    height: 1280,
+  },
+  {
+    src: '/prewed-08.webp',
+    alt: 'Kedua mempelai bersandar pada pohon, mata terpejam',
+    caption: 'Bersandar pada pohon yang sama',
+    width: 960,
+    height: 1280,
+  },
+  {
+    src: '/prewed-09.webp',
+    alt: 'Kedua mempelai berhadapan dan berpegangan tangan di padang rumput kering',
+    caption: 'Berhadapan',
+    width: 960,
+    height: 1280,
+  },
+  {
+    src: '/prewed-10.webp',
+    alt: 'Kedua mempelai berhadapan dengan kain biru panjang terbentang di tanah',
+    caption: 'Satu warna, dua orang',
+    width: 960,
+    height: 1280,
+  },
+  {
+    src: '/prewed-11.webp',
+    alt: 'Quratul Aeni menatap Muhammad Sugandi dengan tangan di dada',
+    caption: 'Menatap, tak jauh',
     width: 960,
     height: 1280,
   },
@@ -75,13 +137,17 @@ export default function GallerySection() {
             <ScrollReveal
               key={photo.src}
               delay={index * 80}
-              className={index === 0 ? 'col-span-2' : ''}
+              className={
+                index === photos.length - 1 && photos.length % 2 === 1 ? 'col-span-2' : ''
+              }
             >
               <button
                 type="button"
                 onClick={() => setActive(index)}
                 className={`group relative block w-full overflow-hidden border border-gold/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
-                  index === 0 ? 'h-[340px] sm:h-[420px]' : 'h-[210px] sm:h-[250px]'
+                  index === photos.length - 1 && photos.length % 2 === 1
+                    ? 'aspect-[4/3]'
+                    : 'aspect-[3/4]'
                 }`}
                 aria-label={`Buka foto: ${photo.caption}`}
               >
@@ -90,7 +156,7 @@ export default function GallerySection() {
                   alt={photo.alt}
                   width={photo.width}
                   height={photo.height}
-                  sizes={index === 0 ? '(max-width: 640px) 92vw, 560px' : '(max-width: 640px) 45vw, 270px'}
+                  sizes="(max-width: 640px) 45vw, 270px"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                 />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/85 to-transparent px-3 pb-2.5 pt-8 text-left text-[11px] tracking-wide text-white/85">
@@ -102,7 +168,7 @@ export default function GallerySection() {
         </div>
 
         <p className="mt-4 text-center text-[11.5px] text-white/40">
-          Foto lain menyusul. Ketuk foto untuk memperbesar.
+          Ketuk foto untuk memperbesar.
         </p>
       </div>
 
